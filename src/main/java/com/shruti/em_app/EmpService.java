@@ -9,5 +9,5 @@ public interface EmpService {
     String createemp(Employee emp);
     List<Employee> getemp();
     Employee updateemp(Employee emp);
-    boolean deleteemp(int id);
+    boolean deleteemp(Integer id);
 }

@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Employee{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //not necessary to set id manually, it will be auto-generated
-    private int id;
+    private Integer id;
 
     private String name;
     private String email;
