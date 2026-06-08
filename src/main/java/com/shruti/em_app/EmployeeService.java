@@ -26,9 +26,15 @@ public class EmployeeService implements EmpService{
     }
 
     @Override
-    public Employee updateemp(Employee emp) {
+    public String updateemp(Integer id, Employee emp) {
         // Implementation for updating employee
-        return empRepo.save(emp);
+        Employee newEmp = new Employee();
+        newEmp.setId(id);
+        newEmp.setName(emp.getName());
+        newEmp.setEmail(emp.getEmail());
+        newEmp.setDesignation(emp.getDesignation());
+        empRepo.save(newEmp);
+        return "Employee updated successfully";
     }
 
     @Override
@@ -39,6 +45,13 @@ public class EmployeeService implements EmpService{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Employee reademp(Integer id){
+        Employee emp = empRepo.findById(id).get(); // can use .orElse(null) as well 
+                                        // to avoid NoSuchElementException if id is not found
+        return emp;
     }
 
 }

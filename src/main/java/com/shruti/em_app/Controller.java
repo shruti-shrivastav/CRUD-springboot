@@ -2,7 +2,7 @@ package com.shruti.em_app;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -13,9 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
+
+    private EmpService employeeService;
     // List<Employee> emps = new ArrayList<>();
-    @Autowired // to inject the dependency of EmployeeService class - Dependency injection
-    EmpService employeeService;
+    //@Autowired // to inject the dependency of EmployeeService class - Dependency injection
+    //EmpService employeeService;
+
+    Controller(EmpService employeeService){  //dependancy injection using constructor
+        this.employeeService = employeeService;  //best practice
+    }
+
     @GetMapping("/emp")
     public List<Employee> show(){
         return employeeService.getemp();
@@ -26,13 +33,18 @@ public class Controller {
         return employeeService.createemp(emp);        
     }
 
-    @PatchMapping("/emp")
-    public Employee update(@RequestBody Employee emp){
-        return employeeService.updateemp(emp);
+    @PatchMapping("/emp/{id}")
+    public String update(@PathVariable Integer id, @RequestBody Employee emp){
+        return employeeService.updateemp(id, emp);
     }
 
     @DeleteMapping("/emp/{id}")
     public boolean delete(@PathVariable Integer id){
         return employeeService.deleteemp(id);
+    }
+
+    @GetMapping("/emp/{id}")
+    public Employee reademployeeEmployee(@PathVariable Integer id){
+        return employeeService.reademp(id);
     }
 }

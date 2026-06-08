@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 public interface EmpService {
     String createemp(Employee emp);
     List<Employee> getemp();
-    Employee updateemp(Employee emp);
+    String updateemp(Integer id, Employee emp);
     boolean deleteemp(Integer id);
+    Employee reademp(Integer id);
 }
