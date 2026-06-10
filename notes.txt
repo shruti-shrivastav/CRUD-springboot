@@ -1,0 +1,40 @@
+Spring-boot starters <Imp>
+
+-- springboot startes are the set of librariers / dependencies provided by springboot to help
+during building the application
+
+1) Starter-web : for MVC (model - view - controller) architecture application
+                 for web based application
+                 provides embedded tomcat server
+                 helps in building RESTful API
+                 auto-configs JSON librariers
+                 data-parsing/ type casting of data (automatically)
+                 return data in JSON form
+
+2) Starter-data-jpa : maps java objects to the table 
+                      provides repository 
+                      provides CRUD operations
+
+3) (Interview worthy) Starter-security : provides authentication and authorization 
+                                         automate the end-point security 
+                                         JWT token & OAuth
+                                         customizable
+
+4) Starter-test (there in app by default) : helps in writing unit test cases
+                                            Junit, mockito etc is present
+
+5) Starter-thymeleaf : provides templates
+                       to print the dynamic data coming from the server to the client page
+                       helps in creating a complete web application with springboot (frontend & backend both java)
+                       we make a controller for this and this returns it for us, follows MVC architecture
+
+6) Starter-amqp : (advanced messaging queue protocol) 
+                  works with the help of a message broker i.e. rabbit mq
+                  promotes modulairty and flexibility and scalability
+
+7) (Interview worthy) Starter-actuator : helps in monitoring and managing
+                                         when your application is live and production ready
+                                         to check the health, matrix, endpoints
+
+
+
